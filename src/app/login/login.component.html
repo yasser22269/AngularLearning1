@@ -1,0 +1,60 @@
+<!-- <form ngNativeValidate>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+
+    <input type="text" id="email" name="email"class="form-control"
+      required
+       ngModel #email="ngModel"
+       (change) = "logObj(email)"
+       minlength="15"
+
+       >
+    <div class="alert alert-danger" role="alert" *ngIf="email.touched && email.invalid" >
+      <div  *ngIf="email.errors?.required  || email.value.length == 0">
+          please Enter Your Email
+      </div>
+      <div  *ngIf="email.errors?.minlength">
+        min length is 15
+     </div>
+     <p *ngIf="email.errors?.url">error message</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+
+<h2>Reactive validation</h2>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+
+    <input type="text" id="email" class="form-control"   (change) = "logObj(email)"
+      formControlName="email" >
+    <div class="alert alert-danger" role="alert"
+     *ngIf="email.touched && email.invalid"
+     >
+      <div  *ngIf="email.errors?.required  || email.value.length == 0">
+          please Enter Your Email
+      </div>
+      <div  *ngIf="email.errors?.noSpaceAllowed">
+       can't Space Allowed
+     </div>
+     <div *ngIf="email.errors?.checkuniquness">the email is unique</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"  formControlName="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

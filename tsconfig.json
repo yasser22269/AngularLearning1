@@ -19,7 +19,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "noImplicitAny": false  // event error Parameters
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,47 @@
+
+
+
+<div class="alert alert-primary">
+<ng-content select=".head"></ng-content>
+</div>
+
+<div class="alert alert-primary">
+  <ng-content select=".body"></ng-content>
+  </div>
+
+
+<ul *ngIf ="arrays.length > 0">
+  <input type="text" #it>
+  <button (click) = "PushItem(it)">ADD</button>
+  <li *ngFor="let item of arrays; let i=index;  trackBy:trackByItems">
+    <button (click) ="RemoveItem(item)">Remove</button>
+      {{i+1}}  -  {{item}}</li>
+</ul>
+
+<div *ngIf ="arrays.length == 0" class="alert alert-danger" role="alert">
+  arrays are empty
+</div>
+
+
+
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link "[class.active] ="setViewValue == 'courses'" (click)="Setview('courses')">Active</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link "[class.active] ="setViewValue == 'itmes'"  (click)="Setview('itmes')">Active2</a>
+  </li>
+</ul>
+
+<div [ngSwitch]= "setViewValue">
+  <div *ngSwitchCase = "'courses'" class="alert alert-primary" >list of courses</div>
+  <div  *ngSwitchCase = "'itmes'"  class="alert alert-primary">list of itmes</div>
+</div>
+
+
+
+<input type="text" InputFormat  [format] ="'toUpperCase'">
+<br>
+<br>

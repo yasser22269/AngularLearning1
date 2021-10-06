@@ -1,0 +1,48 @@
+<h1>xyz works!</h1>
+
+
+<!-- <button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+  </span>
+</button> -->
+
+
+<div (click)="divClicked()">
+  <button (click)="buttonClicked($event)">Save</button>
+</div>
+
+without #Value
+<input type="text" (keyup.enter)="keyup($event)" >
+<h2>{{showKeyup}}</h2>
+By #Value
+<input #t type="text" (keyup.enter)="keyup2(t.value)" >
+<h2>{{showKeyup2}}</h2>
+
+By #ngModel
+<input [(ngModel)]="showKeyup3" type="text" (keyup.enter)="keyup3(showKeyup3)" >
+<h2>{{showKeyup3}}</h2>
+<!--
+  OR
+<input  type="text"showKeyup3=$event.target.value "keyup3(showKeyup3)" >
+ -->
+  <!--  -->
+ <i style="font-size: 50px;"
+ [className]="isFullHeart ? 'far fa-heart' : 'fas fa-heart'"
+ (click)="isFullHeartClick()"
+ ></i>
+
+
+ <!-- <i class="far fa-heart"></i> -->
+
+<br>
+ Pipes:
+ <br>
+ {{SummryTitle | summryPipes}} <br>
+ {{SummryTitle | summryPipes:50}} <br>
+{{NameY | uppercase}}<br>
+
+
+
+
